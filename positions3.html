@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Positions-3</title>
+    <style>
+      .container {
+      }
+      .div-one {
+        /* position: absolute; */
+        border: 5px solid black;
+        background: white;
+        width: 300px;
+        height: 300px;
+      }
+      .div-two {
+        /* position: absolute; */
+        border: 5px solid black;
+        background: white;
+        width: 250px;
+        height: 300px;
+        left: 150px;
+        bottom: 150px;
+        z-index: 1;
+      }
+
+      .div-three {
+        position: absolute;
+        border: 5px solid black;
+        background: white;
+        width: 800px;
+        height: 200px;
+        top: 400px;
+        z-index: 2;
+      }
+      .div-four {
+        position: absolute;
+        border: 5px solid black;
+        background: white;
+        width: 150px;
+        height: 700px;
+        left: 600px;
+        z-index: 3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="div-one">div-one</div>
+      <div class="div-two">div-two</div>
+      <div class="div-three">div-three</div>
+      <div class="div-four">div-four</div>
+    </div>
+  </body>
+</html>
