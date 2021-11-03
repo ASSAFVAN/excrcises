@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Grid</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .grid-container {
+        padding: 1rem;
+        width: 90vw;
+        height: 90vh;
+        display: grid;
+        grid-template-areas:
+          "header header header header"
+          "sidebar content content sidebar2"
+          "footer footer footer footer";
+        grid-gap: 2rem;
+      }
+      .box {
+        border-radius: 1.5rem;
+        color: white;
+        font-size: 2rem;
+        padding: 1rem;
+      }
+      .header {
+        background: red;
+        grid-area: header;
+      }
+      .sidebar {
+        background: blue;
+        grid-area: sidebar;
+      }
+      .content {
+        background: green;
+        grid-area: content;
+      }
+      .sidebar2 {
+        background: purple;
+        grid-area: sidebar2;
+      }
+      .footer {
+        background: yellow;
+        grid-area: footer;
+      }
+
+      /* for tablet */
+      @media (max-width: 768px) {
+        .grid-container {
+          grid-template-areas:
+            "header header header header"
+            "sidebar content content content"
+            "sidebar2 sidebar2 sidebar2 sidebar2"
+            "footer footer footer footer";
+        }
+      }
+      /* for mobile */
+      @media (max-width: 500px) {
+        .grid-container {
+          grid-template-areas:
+            "header "
+            "sidebar"
+            "content"
+            "sidebar2"
+            "footer";
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="header box">Header</div>
+      <div class="sidebar box">Sidebar</div>
+      <div class="content box">
+        Content
+        <p>More content than we had before so this column is now quite tall</p>
+      </div>
+      <div class="sidebar2 box">Sidebar 2</div>
+      <div class="footer box">Footer</div>
+    </div>
+  </body>
+</html>
