@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age</title>
+  </head>
+  <body>
+    <div>What is your age?</div>
+    <input type="text" />
+    <button>Enter</button>
+    <div class="text"></div>
+  </body>
+  <script>
+    const myInput = document.querySelector("input");
+    const button = document.querySelector("button");
+    const text = document.querySelector(".text");
+    const changeText = function () {
+      if (myInput.value > 18) {
+        text.innerText = "you can drink appear";
+      } else {
+        text.innerText = "you're too young";
+      }
+    };
+    button.addEventListener("click", changeText);
+  </script>
+</html>
