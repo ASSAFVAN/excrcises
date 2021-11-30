@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>text area</title>
+  </head>
+  <body>
+    <div>Why are you interested in this position?</div>
+    <textarea cols="40" rows="8"></textarea>
+    <div>
+      <button>Click Here!</button>
+    </div>
+    <div class="alertMessage">
+      You must enter at least 100 characters before clicking
+    </div>
+  </body>
+  <script>
+    const myText = document.querySelector("textarea");
+    const btn = document.querySelector("button");
+    const msgAlert = document.querySelector(".alertMessage");
+    msgAlert.style.display = "none";
+    msgAlert.style.color = "red";
+
+    const isExceeded = function () {
+      if (myText.value.length < 100) {
+        msgAlert.style.display = "block";
+      } else {
+        msgAlert.style.display = "none";
+      }
+    };
+
+    btn.addEventListener("click", isExceeded);
+  </script>
+</html>

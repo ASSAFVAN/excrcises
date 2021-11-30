@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Transitions</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .box {
+        height: 200px;
+        width: 200px;
+        background-color: red;
+        position: relative;
+      }
+      .box::before {
+        content: "";
+        height: 200px;
+        width: 200px;
+        background-color: purple;
+        position: absolute;
+        transform: translateX(-200px);
+        transition-property: all;
+        transition-duration: 1s;
+        transition-timing-function: ease-in;
+      }
+
+      .box:hover::before {
+        content: "";
+        background-color: green;
+        transform: translateX(0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

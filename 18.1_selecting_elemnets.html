@@ -1,0 +1,63 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" / >
+    <meta
+      name="viewport"
+      content="width=device-width,
+initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Header</h1>
+    <p>Paragraph</p>
+    <a href="#">link</a>
+    <img src="" alt="" />
+    <div class="x">Div with a class</div>
+    <div id="y">Div with an id</div>
+    <input type="text" />
+    <input type="text" />
+    <input type="text" />
+  </body>
+  <script>
+    //1.
+    const header = document.getElementsByTagName("h1");
+    console.log(header);
+    const par = document.getElementsByTagName("p");
+    console.log(par);
+    const image = document.getElementsByTagName("img");
+    console.log(image);
+    const x = document.getElementsByClassName("x");
+    console.log(x);
+    const y = document.getElementById("y");
+    console.log(y);
+    const input = document.getElementsByTagName("input");
+    console.log(input);
+
+    //2.
+    const header1 = document.querySelector("h1");
+    console.log(header1);
+    const par1 = document.querySelector("p");
+    console.log(par1);
+    const image1 = document.querySelector("img");
+    console.log(image1);
+    const x1 = document.querySelector(".x");
+    console.log(x1);
+    const y1 = document.querySelector("#y");
+    console.log(y1);
+    const input1 = document.querySelector("input");
+    console.log(input1);
+
+    //3.
+    //itterate using querySelectorAll and forEach
+    const allInput = document.querySelectorAll("input");
+    const inputLog = allInput.forEach((inputElement) => {
+      console.log(inputElement);
+    });
+    //itterate using getElementbYTagName and for
+    for (let inputLog2 of input) {
+      console.log(inputLog2);
+    }
+  </script>
+</html>

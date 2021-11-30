@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms</title>
+  </head>
+  <body>
+    <form action="process.php">
+      <div>
+        <label for="Email">Email:</label><br />
+        <input type="email" id="email" name="email" />
+      </div>
+      <br />
+      <div>
+        <label for="Password">Password:</label><br />
+        <input type="text" id="Password" name="Password" />
+      </div>
+      <br />
+      <div>
+        <label for="Age">Age:</label><br />
+        <select name="Age" id="Age">
+          <option value="Select Age">Select Age</option>
+          <option value="1-10">1-10</option>
+          <option value="11-20">11-20</option>
+          <option value="21-30">21-30</option>
+          <option value="31-40">31-40</option>
+          <option value="41-50">41-50</option>
+          <option value="51-60">51-60</option>
+          <option value="61-70">61-70</option>
+          <option value="71-80">71-80</option>
+          <option value="81-90">81-90</option>
+          <option value="91-100">91-100</option>
+        </select>
+      </div>
+      <br />
+      <div>
+        <label for="Aboutyou">Tell us a little about yourself:</label><br />
+        <textarea name="Aboutyou" id="Aboutyou" cols="50" rows="5"></textarea>
+      </div>
+      <br />
+      <input type="checkbox" name="Terms" id="Terms" />
+      <label for="Terms">I agree to the terms of service</label>
+
+      <br />
+      <br />
+      <button type="submit">Sign up</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smiley</title>
+  </head>
+  <style>
+    img {
+      height: 40px;
+      width: 40px;
+    }
+    .smileys-container {
+      width: fit-content;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+    }
+  </style>
+  <body>
+    <div>How many smileys do you want to see?</div>
+    <input type="text" />
+    <button>submit</button>
+    <div class="smileys-container"></div>
+  </body>
+  <script>
+    const btn = document.querySelector("button");
+    const images = document.querySelector(".smileys-container");
+    const numOfSmileys = function (e) {
+      let inputNumber = document.querySelector("input").value;
+      inputNumber = parseInt(inputNumber);
+      if (Number.isInteger(inputNumber)) {
+        images.innerHTML = "";
+        for (let i = 0; i < inputNumber; i++) {
+          const img = document.createElement("img");
+          img.src = "smiley.png";
+          images.appendChild(img);
+        }
+      } else {
+        alert("not a number");
+      }
+    };
+    btn.addEventListener("click", numOfSmileys);
+  </script>
+</html>
