@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Float_layout</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .container {
+        max-width: 960px;
+        margin: 30px auto;
+        border: 1px solid black;
+        padding: 10px;
+      }
+      .clr {
+        clear: both;
+      }
+      .box {
+        border: 1px solid black;
+        margin-bottom: 10px;
+      }
+      #box1 {
+        background-color: orange;
+        text-align: center;
+        height: 90px;
+      }
+      #box2 {
+        background-color: green;
+        text-align: left;
+        width: 960px;
+        height: 400px;
+        float: left;
+        width: 30%;
+      }
+      #box3 {
+        background-color: purple;
+        text-align: right;
+        width: 69%;
+        height: 400px;
+        float: right;
+      }
+      #box4 {
+        background-color: blue;
+        text-align: center;
+        height: 90px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="box1" class="box">
+        <h4>Header</h4>
+      </div>
+      <div id="box2" class="box">
+        <h4>Side</h4>
+      </div>
+      <div id="box3" class="box">
+        <h4>Main</h4>
+      </div>
+      <div class="clr"></div>
+      <div id="box4" class="box">
+        <h4>Footer</h4>
+      </div>
+    </div>
+  </body>
+</html>

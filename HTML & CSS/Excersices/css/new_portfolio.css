@@ -1,0 +1,88 @@
+:root {
+  --primary-color: #446190;
+  --secondary-color: lightcyan;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--secondary-color);
+}
+.clr {
+  clear: both;
+}
+.navbar {
+  list-style: none;
+  background: var(--primary-color);
+  border-radius: 5px;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.findmeat li {
+  width: 100%;
+}
+.navbar li {
+  float: left;
+}
+
+.main {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.card {
+  width: 230px;
+  height: 350px;
+  margin: 50px auto;
+  box-shadow: 1px 1px 30px;
+  border-radius: 10px;
+}
+.card-top img {
+  width: 100%;
+  border-radius: 10px;
+}
+.card-bottom {
+  padding: 30px;
+}
+.box {
+  border: 1px solid black;
+  margin-bottom: 10px;
+  background-color: var(--primary-color);
+}
+#cardbox {
+  margin-top: 10px;
+  background-color: var(--primary-color);
+  text-align: center;
+  height: 450px;
+}
+#titles {
+  background-color: var(--primary-color);
+  text-align: center;
+  width: 960px;
+  height: 100px;
+  float: left;
+  width: 50%;
+  padding: 35px 0;
+}
+.clickhere {
+  background-color: teal;
+  font-size: 13px;
+  border: none;
+  border-radius: 3px;
+  padding: 3px 25px;
+}
+#aboutme {
+  background-color: var(--primary-color);
+  text-align: center;
+  width: 49%;
+  height: 100px;
+  float: right;
+  padding-top: 10px;
+}
+#followme {
+  background-color: var(--primary-color);
+  text-align: center;
+  height: 130px;
+}

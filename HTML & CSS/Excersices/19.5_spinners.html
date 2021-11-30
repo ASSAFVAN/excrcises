@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spinners</title>
+    <style>
+      :root {
+        --primary-color: rgb(12, 225, 199);
+      }
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: black;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: row;
+        height: 100vh;
+      }
+
+      /* spinner-1 */
+      .spinner-1 {
+        height: 100px;
+        width: 100px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      .circle {
+        background-color: var(--primary-color);
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+      }
+      .circle1 {
+        position: relative;
+        bottom: 10px;
+        animation-name: animate1;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+        animation-direction: alternate;
+        animation-timing-function: linear;
+      }
+
+      .circle2 {
+        position: relative;
+        bottom: 10px;
+        animation-name: animate1;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+        animation-delay: 0.5s;
+        animation-direction: alternate;
+        animation-timing-function: linear;
+      }
+
+      .circle3 {
+        position: relative;
+        bottom: 10px;
+        animation-name: animate1;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+        animation-delay: 1s;
+        animation-direction: alternate;
+        animation-timing-function: linear;
+      }
+      @keyframes animate1 {
+        from {
+          bottom: 0;
+        }
+        to {
+          bottom: 30px;
+        }
+      }
+      .spinner-2 {
+        height: 100px;
+        width: 100px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      .circle4 {
+        animation-name: animate2;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+        animation-direction: alternate;
+        animation-timing-function: linear;
+      }
+      .circle5 {
+        animation-name: animate2;
+        animation-duration: 1s;
+        animation-delay: 0.2s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+        animation-direction: alternate;
+        animation-timing-function: linear;
+      }
+      .circle6 {
+        animation-name: animate2;
+        animation-duration: 1s;
+        animation-delay: 0.4s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+        animation-direction: alternate;
+        animation-timing-function: linear;
+      }
+      @keyframes animate2 {
+        from {
+          background-color: gray;
+        }
+        to {
+          background-color: var(--primary-color);
+        }
+      }
+      .spinner-3 {
+        border-radius: 50%;
+        border-top: 3px solid var(--primary-color);
+        border-bottom: 3px solid gray;
+        border-left: 3px solid gray;
+        border-right: 3px solid gray;
+        width: 100px;
+        height: 100px;
+
+        animation-name: animate3;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+        animation-direction: reverse;
+        animation-timing-function: linear;
+      }
+
+      @keyframes animate3 {
+        from {
+          transform: rotate(360deg);
+        }
+      }
+      .spinner-4 {
+        border-radius: 50%;
+        border: 3px, solid transparent;
+        border-top: 3px solid var(--primary-color);
+        border-bottom: 3px solid rgba (255, 255, 255, 0);
+        border-left: 3px solid rgba (255, 255, 255, 0);
+        border-right: 3px solid transparent;
+
+        width: 100px;
+        height: 100px;
+
+        animation-name: animate3;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+        animation-direction: reverse;
+        animation-timing-function: linear;
+      }
+
+      @keyframes animate4 {
+        from {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div class="container"> -->
+    <div class="spinner-1">
+      <div class="circle1 circle"></div>
+      <div class="circle2 circle"></div>
+      <div class="circle3 circle"></div>
+    </div>
+    <div class="spinner-2">
+      <div class="circle4 circle"></div>
+      <div class="circle5 circle"></div>
+      <div class="circle6 circle"></div>
+    </div>
+    <div class="spinner-3"></div>
+    <div class="spinner-4"></div>
+    <!-- </div> -->
+  </body>
+</html>

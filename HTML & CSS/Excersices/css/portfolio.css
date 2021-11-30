@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(210, 226, 231);
+}
+#profile-card {
+  width: 300px;
+  height: 400px;
+  box-shadow: 3px 3px 10px;
+  font-family: roboto;
+  color: darkslategray;
+  margin: auto;
+  text-align: center;
+}
+h2 {
+  font-weight: bold;
+}
+h3 {
+  font-style: italic;
+}
+#about-me {
+  color: darkslategray;
+  font-family: roboto;
+  word-wrap: normal;
+  width: 100%;
+  box-shadow: 1px 1px 30px;
+  text-align: center;
+  margin: auto;
+  padding: 20px;
+}
+#find-me {
+  color: darkslategray;
+  font-family: roboto;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+  width: 50%;
+}
+ul {
+  list-style-type: none;
+  margin-bottom: 020px;
+  padding: 0;
+}

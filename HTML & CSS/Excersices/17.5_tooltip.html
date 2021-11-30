@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tool tip</title>
+    <style>
+      .tooltip {
+        position: relative;
+        font-weight: bold;
+      }
+      .tooltip:hover:before {
+        content: attr(data-tooltip);
+        position: absolute;
+        width: 160px;
+        background-color: yellow;
+        border-radius: 10px;
+        text-align: center;
+        padding: 10px;
+        left: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam impedit
+      saepe officia doloremque ad. Odit a nesciunt
+      <span data-tooltip="this is a badass tooltip" class="tooltip">optio</span>
+      eaque ducimus est laboriosam ad rem, molestias minus consequuntur sapiente
+      commodi? Architecto?
+    </p>
+  </body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transitions</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+      }
+      .button-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        height: 100vh;
+      }
+      button {
+        background-color: transparent;
+        border: 5px solid black;
+        height: 80px;
+        width: 200px;
+        font-size: 20px;
+        overflow: hidden;
+      }
+      /* TranslateY button */
+      .translateY-btn {
+        position: relative;
+      }
+      .translateY-btn::after {
+        position: absolute;
+        content: "";
+        border: none;
+        height: 0px;
+        width: 190px;
+        top: 0;
+        right: 0;
+        font-size: 20px;
+        color: black;
+        transform: translatey(-190px);
+        transition-property: all;
+        transition-duration: 0.5s;
+        transition-timing-function: linear;
+      }
+      .translateY-btn:hover::after {
+        transform: translateY(0);
+        content: "YEAH!";
+        line-height: 70px;
+        color: black;
+        background-color: red;
+        height: 70px;
+      }
+
+      /* Translate button */
+      .translate-btn {
+        position: relative;
+        transition-property: all;
+        transition-duration: 1s;
+        transition-timing-function: ease-in;
+      }
+      .translate-btn::after {
+        position: absolute;
+        content: "";
+        border: none;
+        height: 70px;
+        width: 190px;
+        top: 0;
+        left: 0;
+        font-size: 20px;
+        background-color: black;
+        transform: translate(-190px);
+        transform-origin: top left;
+        transition-property: all;
+        transition-duration: 1s;
+        transition-timing-function: ease-in;
+      }
+      .translate-btn:hover::after {
+        transform: translate(0);
+        content: "";
+        z-index: -1;
+      }
+      .translate-btn:hover {
+        color: white;
+        transform: translate();
+      }
+
+      /* Rotate button */
+      .rotate-btn {
+        position: relative;
+      }
+      .rotate-btn::after {
+        position: absolute;
+        content: "";
+        border: none;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        font-size: 20px;
+        color: black;
+        transform: rotate(-90deg);
+        transition-property: all;
+        transition-duration: 1s;
+        transform-origin: top left;
+        transition-timing-function: ease-in;
+      }
+      .rotate-btn:hover::after {
+        transform: rotate(0deg);
+        content: "";
+        background-color: yellow;
+        z-index: -1;
+      }
+
+      /* scale & opacity  button*/
+      .scale-n-opacity-btn-btn {
+        position: relative;
+      }
+      .scale-n-opacity-btn::after {
+        position: absolute;
+        content: "Scale & Opacity";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        height: 70px;
+        width: 190px;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        background-color: transparent;
+        transform: scale(2);
+        transition-property: all;
+        transition-duration: 1s;
+        transition-timing-function: ease-in;
+      }
+      .scale-n-opacity-btn:hover::after {
+        transform: scale(1);
+        content: "";
+        opacity: 1;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="button-container">
+      <button class="rotate-btn">Rotate</button>
+      <button class="translate-btn">Translate</button>
+      <button class="translateY-btn">TranslateY</button>
+      <button class="scale-n-opacity-btn">Scale & Opacity</button>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.clr {
+  clear: both;
+}
+body {
+  background-color: #32465d;
+  max-width: 960px;
+}
+.title {
+  color: #f4ffff;
+  text-align: center;
+  font-size: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: normal;
+}
+.first-row {
+  margin: auto;
+  width: 30%;
+  text-align: center;
+}
+.second-row {
+  margin: auto;
+  width: 30%;
+  text-align: center;
+}
+.third-row {
+  margin: auto;
+  width: 30%;
+  text-align: center;
+}
+.forth-row {
+  margin: auto;
+  width: 30%;
+  text-align: center;
+}
+.register {
+  background: #2edd78;
+  border: none;
+  color: #e6f7ff;
+  float: left;
+  font-size: 10px;
+  padding: 6px 25px;
+}
+.clear {
+  background: #fb2325;
+  border: none;
+  color: #e6f7ff;
+  padding: 3px 20px;
+}
+.submit {
+  background: #0a8ad4;
+  border: none;
+  color: #e6f7ff;
+  float: right;
+  padding: 2px 15px;
+}
+.second-row .register {
+  background: orange;
+  border: none;
+  color: #e6f7ff;
+  float: left;
+  font-size: 10px;
+  padding: 6px 25px;
+  border-radius: 10px;
+}
+.second-row .clear {
+  background: yellow;
+  border: none;
+  color: #e6f7ff;
+
+  font-size: 10px;
+  padding: 6px 25px;
+  border-radius: 10px;
+}
+.second-row .submit {
+  background: gray;
+  border: none;
+  color: #e6f7ff;
+  float: right;
+  font-size: 10px;
+  padding: 6px 25px;
+  border-radius: 10px;
+}
+.third-row .register {
+  background: none;
+  border: 1px solid green;
+  color: #e6f7ff;
+  float: left;
+  font-size: 10px;
+  padding: 6px 25px;
+}
+.third-row .clear {
+  background: none;
+  border: 1px solid red;
+  color: #e6f7ff;
+  font-size: 10px;
+  padding: 6px 25px;
+}
+.third-row .submit {
+  background: none;
+  border: 1px solid #0a8ad4;
+  color: #e6f7ff;
+  float: right;
+  font-size: 10px;
+  padding: 6px 25px;
+}
+.forth-row .register {
+  background: none;
+  border: 1px solid orange;
+  color: #e6f7ff;
+  float: left;
+  font-size: 10px;
+  padding: 6px 25px;
+  border-radius: 10px;
+}
+.forth-row .clear {
+  background: none;
+  border: 1px solid yellow;
+  color: #e6f7ff;
+  font-size: 10px;
+  padding: 6px 25px;
+  border-radius: 10px;
+}
+.forth-row .submit {
+  background: none;
+  border: 1px solid gray;
+  color: #e6f7ff;
+  float: right;
+  font-size: 10px;
+  padding: 6px 25px;
+  border-radius: 10px;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Font size</title>
+  </head>
+  <body>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Error quibusdam,
+      molestiae eaque eos in beatae quae laborum sint aliquam illum saepe
+      laboriosam dignissimos, ducimus sunt, modi quam. Quae, vitae aperiam?
+    </p>
+
+    <button class="plus">+</button>
+    <button class="minus">-</button>
+  </body>
+  <script>
+    const text = document.querySelector("p");
+    const plusBtn = document.querySelector(".plus");
+    const minusBtn = document.querySelector(".minus");
+    const computedStyle = getComputedStyle(text);
+
+    const biggerFont = function () {
+      let fontSize = parseInt(computedStyle.fontSize);
+      fontSize > 99 ? (fontSize = 100) : fontSize++;
+      text.style.fontSize = fontSize + "px";
+    };
+    const smallerFont = function () {
+      fontSize = parseInt(computedStyle.fontSize);
+      fontSize < 7 ? (fontSize = 6) : fontSize--;
+      text.style.fontSize = fontSize + "px";
+    };
+
+    plusBtn.addEventListener("click", biggerFont);
+    minusBtn.addEventListener("click", smallerFont);
+  </script>
+</html>

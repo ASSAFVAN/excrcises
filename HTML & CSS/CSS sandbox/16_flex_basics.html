@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex basics</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .flex-container {
+        display: flex;
+        /* flex-direction: column-reverse; */
+        /* flex-wrap: wrap; */
+      }
+      .item {
+        background: lightgray;
+        border: #ccc solid 2px;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+        border-radius: 10px;
+        width: 200px;
+      }
+      .item-1 {
+        flex-shrink: 1; /*1=shrink,0=no shrink */
+      }
+      .item-2 {
+        flex-grow: 1;
+        flex-basis: 0; /* set the inital width of an item */
+      }
+      .item-3 {
+        flex-grow: 2; /* double the size of item number 3 relative to the two other divs  */
+        flex-basis: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="item item-1">
+        <h3>item 1</h3>
+      </div>
+      <div class="item item-2">
+        <h3>item 2</h3>
+      </div>
+      <div class="item item-3">
+        <h3>item 3</h3>
+      </div>
+    </div>
+  </body>
+</html>
