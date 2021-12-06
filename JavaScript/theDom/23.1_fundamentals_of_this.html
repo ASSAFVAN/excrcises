@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fundamentals of this</title>
+  </head>
+  <body></body>
+  <script>
+    // 1. console.log(this);
+    //point tot the window
+
+    //2. const myObj = {
+    //name: "Timmy",
+    //greet: () => {
+    //console.log(`Hello ${this.name}`);
+    //},
+    //};
+    //myObj.greet();
+
+    // point to the window because it is an arrow function and will print undefined. if we change it to function declarion, then it will print hello timmy
+
+    //3.
+    //const myFuncDec = function () {
+    //console.log(this);
+    //};
+
+    // point to the window
+
+    //4.
+    // const myFuncArrow = () => {
+    // console.log(this);
+    // };
+    // myFuncArrow();
+
+    //point to the window because it is an arrow function
+
+    //5.
+    //document.querySelector(".element").addEventListener(() => {
+    //console.log(this);
+    //});
+
+    //point to the window because it is an arrow function.
+    // if we change it to function declaration it will refer to the element
+  </script>
+</html>
