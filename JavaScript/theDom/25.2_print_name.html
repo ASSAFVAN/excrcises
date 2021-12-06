@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>print name</title>
+  </head>
+  <body></body>
+  <script>
+    const myObj = {
+      name: "Assaf",
+      printName() {
+        console.log(this.name);
+      },
+      printDelayName() {
+        setTimeout(function () {
+          return myObj.printName.call(myObj);
+        }, 1000);
+      },
+    };
+    myObj.printName();
+    myObj.printDelayName();
+  </script>
+</html>
