@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>refactor with async await</title>
+  </head>
+  <body>
+    <button class="btn">Get Joke</button>
+    <div class="output"></div>
+  </body>
+  <script>
+    const getJokeBtn = document.querySelector("button");
+    getJokeBtn.addEventListener("click", getJoke);
+
+    async function getJoke() {
+      let result = await fetch("https://api.jokes.one/jod");
+      let data = await result.json();
+      const jokeArr = data.contents.jokes;
+      const jokeObj = jokeArr[0];
+      const title = jokeObj.joke.title;
+      const theJoke = jokeObj.joke.text;
+      let output = `<h2>${title}</h2>
+                        <div>${theJoke}</div>`;
+      document.querySelector(".output").innerHTML = output;
+    }
+  </script>
+</html>
