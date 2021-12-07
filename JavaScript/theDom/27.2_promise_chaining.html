@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>promise chaining</title>
+  </head>
+  <body></body>
+  <script>
+    function makeAllCaps(arr) {
+      return (firstPromise = new Promise((resolve, reject) => {
+        let allStrings = arr.every((word) => {
+          return typeof word === "string";
+        });
+        if (allStrings) {
+          resolve(arr.toString().toUpperCase().split(","));
+        } else {
+          reject("error");
+        }
+      }));
+    }
+
+    function sortWords(arr) {
+      return arr.sort();
+    }
+
+    makeAllCaps(["ccc", "aaa"])
+      .then((result) => {
+        return sortWords(result);
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch(() => {
+        console.log("rejected");
+      });
+  </script>
+</html>
