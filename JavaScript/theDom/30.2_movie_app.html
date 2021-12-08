@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>movie app</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #ffffff;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .movie {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    h1 {
+      font-size: 48px;
+    }
+    h4,
+    h3 {
+      margin: 10px;
+    }
+    .info {
+      display: flex;
+    }
+    .info > li {
+      list-style: none;
+      margin: 10px 0 10px 10px;
+    }
+    .genre {
+      margin: 10px;
+    }
+    .border-line {
+      border-top: 1px solid lightgray;
+    }
+  </style>
+  <body>
+    <div>
+      <input type="text" name="" class="userInput" autofocus />
+      <button>Search</button>
+    </div>
+    <div class="movie"></div>
+  </body>
+
+  <script>
+    const searchBtn = document.querySelector("button");
+    const userInput = document.querySelector(".userInput");
+    const movie = document.querySelector(".movie");
+    const info = document.querySelector(".info");
+
+    searchBtn.addEventListener("click", () => {
+      eventsAction();
+    });
+    userInput.addEventListener("keypress", (e) => {
+      if (e.keyCode === 13) {
+        e.preventDefault();
+        eventsAction();
+      }
+    });
+
+    function eventsAction() {
+      movie.innerHTML = "";
+      getMoviesApi(userInput.value);
+      userInput.value = "";
+      userInput.focus();
+    }
+
+    async function getMoviesApi(movieName) {
+      try {
+        const response = await fetch(
+          `http://www.omdbapi.com/?apikey=e9c219a3&t=${movieName}`
+        );
+        const data = await response.json();
+        console.log(data);
+
+        setMovieInfo(data);
+      } catch (error) {}
+    }
+
+    function setMovieInfo(data) {
+      const moviePoster = document.createElement("img");
+      moviePoster.src = data.Poster;
+      moviePoster.height = 400;
+
+      const movieInfo = document.createElement("ul");
+      movieInfo.classList.add("info");
+
+      const movieTitle = document.createElement("h1");
+      movieTitle.innerText = data.Title;
+
+      const movieYear = document.createElement("li");
+      movieYear.innerText = data.Year;
+      const movieRated = document.createElement("li");
+      movieRated.innerText = data.Rated;
+      const movieRuntime = document.createElement("li");
+      movieRuntime.innerText = data.Runtime;
+
+      const movieGenre = document.createElement("h4");
+      movieGenre.innerText = data.Genre;
+      movieGenre.classList.add("genre");
+      const moviePlot = document.createElement("h4");
+      moviePlot.innerText = data.Plot;
+
+      const borderLine = document.createElement("div");
+      borderLine.classList.add("border-line");
+
+      const movieDirector = document.createElement("h3");
+      movieDirector.innerText = `Director ${data.Director}`;
+
+      const movieActors = document.createElement("h3");
+      movieActors.innerText = `Stars ${data.Actors}`;
+
+      const movieRatings1 = document.createElement("h3");
+      movieRatings1.innerText = data.Ratings[0].Value;
+
+      const movieRatings2 = document.createElement("h3");
+      movieRatings2.innerText = data.Ratings[1].Value;
+
+      const movieRatings3 = document.createElement("h3");
+      movieRatings3.innerText = data.Ratings[2].Value;
+
+      movie.appendChild(movieTitle);
+      movie.appendChild(movieInfo);
+
+      movieInfo.appendChild(movieYear);
+      movieInfo.appendChild(movieRated);
+      movieInfo.appendChild(movieRuntime);
+
+      movie.appendChild(moviePoster);
+
+      movie.appendChild(movieGenre);
+      movie.appendChild(moviePlot);
+
+      movie.appendChild(borderLine);
+      movie.appendChild(movieDirector);
+      movie.appendChild(borderLine);
+
+      movie.appendChild(movieActors);
+
+      movie.appendChild(movieRatings1);
+      movie.appendChild(movieRatings2);
+      movie.appendChild(movieRatings3);
+    }
+  </script>
+</html>
