@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>github api</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    .cards-container {
+      display: flex;
+    }
+    .card {
+      margin-left: 10px;
+      margin-top: 10px;
+      text-decoration: none;
+    }
+  </style>
+  <body>
+    <div>
+      <input type="text" name="" class="userInput" autofocus />
+      <button>Search</button>
+    </div>
+    <div class="cards-container"></div>
+  </body>
+  <script>
+    const searchBtn = document.querySelector("button");
+    const userInput = document.querySelector(".userInput");
+
+    searchBtn.addEventListener("click", () => {
+      eventsAction();
+    });
+    userInput.addEventListener("keypress", (e) => {
+      if (e.keyCode === 13) {
+        e.preventDefault();
+        eventsAction();
+      }
+    });
+
+    function eventsAction() {
+      getUserApi(userInput.value);
+      userInput.value = "";
+      userInput.focus();
+    }
+
+    async function getUserApi(userName) {
+      try {
+        const response = await fetch(
+          `https://api.github.com/users/${userName}`
+        );
+        const data = await response.json();
+        console.log(data);
+        setCardInfo(data);
+      } catch (error) {}
+    }
+
+    function setCardInfo(data) {
+      const cardsContainer = document.querySelector(".cards-container");
+      const card = document.createElement("a");
+      const userURL = data.html_url;
+      card.setAttribute("href", `${userURL}`);
+      card.setAttribute("target", "_blank");
+      card.classList.add("card");
+      cardsContainer.appendChild(card);
+      const avatarImage = document.createElement("img");
+      avatarImage.src = data.avatar_url;
+      avatarImage.height = 200;
+      card.appendChild(avatarImage);
+      const userName = document.createElement("h2");
+      userName.innerText = data.login;
+      card.appendChild(userName);
+      const numberOfPublicRep = document.createElement("h3");
+      numberOfPublicRep.innerText = data.public_repos;
+      card.appendChild(numberOfPublicRep);
+    }
+  </script>
+</html>
