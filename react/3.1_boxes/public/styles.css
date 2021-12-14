@@ -1,0 +1,35 @@
+.green-box {
+  background-color: green;
+  height: 300px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blue-box {
+  background-color: blue;
+  height: 250px;
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pink-box {
+  background-color: pink;
+  height: 200px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-content: space-around;
+}
+
+.purple-box {
+  background-color: purple;
+  height: 80px;
+  width: 250px;
+  margin-top: 10px;
+}

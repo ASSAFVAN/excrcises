@@ -1,0 +1,15 @@
+.buttons {
+  border: none;
+  margin-left: auto 0;
+  background: none;
+  color: crimson;
+  cursor: pointer;
+}
+
+.card {
+  border: 1px solid lightgray;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem 1rem;
+  width: fit-content;
+}
