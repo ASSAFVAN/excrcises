@@ -1,27 +1,28 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Homepage from "./Components/Homepage";
-import Products from "./Components/Products";
-import ProductDetail from "./Components/ProductDetail";
-import Header from "./Components/Header";
-import Notfound from "./Components/Notfound";
+import Mockupapi from "./APIs/api";
+import UsersList from "./Components/UsersList";
 
 class App extends React.Component {
+  state = { users: [] };
+
+  componentDidMount() {
+    this.getApiData();
+  }
+
+  getApiData = async () => {
+    const response = await Mockupapi.get("");
+    console.log(response);
+
+    this.setState({ users: response.data });
+  };
+
   render() {
     return (
-      <div>
-        <BrowserRouter>
-          <div>
-            <Header />
-            <Switch>
-              <Route path="/" exact component={Homepage} />
-              <Route path="/products" exact component={Products} />
-              <Route path="/products/:id" exact component={ProductDetail} />
-              <Route component={Notfound} />
-            </Switch>
-          </div>
-        </BrowserRouter>
+      <div className="app-container">
+        <div>
+          <UsersList users={this.state.users} />
+        </div>
       </div>
     );
   }
