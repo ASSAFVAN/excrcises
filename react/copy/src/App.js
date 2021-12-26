@@ -1,31 +1,15 @@
 import React from "react";
+import Paragraph from "./Components/Paragraph";
 import "./App.css";
-import Mockupapi from "./APIs/api";
-import UsersList from "./Components/UsersList";
 
-class App extends React.Component {
-  state = { users: [] };
+export default function App() {
+  const text =
+    "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae debitis labore facere ipsam magnam. Voluptate esse exercitationem quibusdam velit modi porro suscipit quasi omnis odit praesentium. Ea ex facilis vel?";
+  const maxLength = 20;
 
-  componentDidMount() {
-    this.getApiData();
-  }
-
-  getApiData = async () => {
-    const response = await Mockupapi.get("");
-    console.log(response);
-
-    this.setState({ users: response.data });
-  };
-
-  render() {
-    return (
-      <div className="app-container">
-        <div>
-          <UsersList users={this.state.users} />
-        </div>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <Paragraph text={text} maxLength={maxLength} />
+    </div>
+  );
 }
-
-export default App;
