@@ -1,0 +1,27 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+ul.results-list {
+  list-style-type: circle;
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  background: crimson;
+  cursor: pointer;
+  color: white;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.3rem;
+  margin-left: 1rem;
+}
