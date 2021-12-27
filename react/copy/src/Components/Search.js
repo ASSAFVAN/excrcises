@@ -1,30 +1,41 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import axios from "axios";
 
 const Search = () => {
-  const [results, setResults] = useState([]);
+  const [country, setCountry] = useState([]);
+  const [filteredData, setFilteredData] = useState(country);
 
   useEffect(() => {
     const search = async () => {
-      const { data } = await axios.get("https://swapi.dev/api/films/1/");
-      setResults(data);
-      console.log(results);
+      const { data } = await axios.get("https://restcountries.com/v2/all");
+      setCountry(data);
+      setFilteredData(data);
     };
     search();
   }, []);
 
-  const renderedResults = () => {
-    return (
-      <div key={results.title}>
-        <div>Name:{results.title}</div>
-        <div>Director:{results.director}</div>
-      </div>
-    );
+  const handleSearch = (event) => {
+    let value = event.target.value.toLowerCase();
+    console.log(value);
+    let result = [];
+    result = country.filter((data) => {
+      return data.name.toLowerCase().search(value) !== -1;
+    });
+    setFilteredData(result);
   };
+
+  const renderedCountries = filteredData.map((country) => {
+    return (
+      <Fragment key={country.alpha2Code}>
+        <li>{country.name}</li>
+      </Fragment>
+    );
+  });
 
   return (
     <div>
-      <div>{renderedResults()}</div>
+      <div>{<input onChange={(event) => handleSearch(event)} />}</div>
+      <ul className="countries-list">{renderedCountries}</ul>
     </div>
   );
 };

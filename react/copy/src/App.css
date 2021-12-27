@@ -4,14 +4,13 @@
   box-sizing: border-box;
 }
 
-button {
-  border: none;
-  background: none;
-  cursor: pointer;
-  color: blue;
-  font-size: 1rem;
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.cross {
-  text-decoration: line-through;
+ul.countries-list {
+  list-style-type: circle;
 }
