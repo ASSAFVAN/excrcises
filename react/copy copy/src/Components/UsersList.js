@@ -1,8 +1,10 @@
 import React from "react";
 import UserItem from ".//UserItem";
+import Button from "./Button";
+
 import "../App.css";
 
-export default function UsersList({ users }) {
+export default function UsersList({ users, handleClick }) {
   const renderList = users.map((user) => {
     return (
       <div className="card-container">
@@ -13,8 +15,15 @@ export default function UsersList({ users }) {
           image={user.image}
         />
         <div className="btn-wrap">
-          <button>Edit User</button>
-          <button>Delete User</button>
+          {/* <button>Edit User</button>
+          <button>Delete User</button> */}
+          <Button
+            id={user.id}
+            handleClick={handleClick}
+            name="delete"
+            btnText="Delete User"
+          />
+          <Button handleClick={handleClick} name="edit" btnText="Edit User" />
         </div>
       </div>
     );
