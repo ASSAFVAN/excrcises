@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import Input from "./Components/Input";
+import Search from "./Components/Search";
 
 export default function App() {
   return (
     <div>
-      <Input />
+      <Search />
     </div>
   );
 }
