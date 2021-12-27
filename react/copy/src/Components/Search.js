@@ -2,6 +2,9 @@ import React, { useState, useEffect, Fragment } from "react";
 import axios from "axios";
 
 const Search = () => {
+  const [categories, setCategories] = useState([]);
+  const [joke, setJoke] = useState("");
+
   const [query, setQuery] = useState("hooks");
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -11,9 +14,10 @@ const Search = () => {
       setIsLoading(true);
       try {
         const { data } = await axios.get(
-          `https://hn.algolia.com/api/v1/search?query=${query}`
+          `https://api.chucknorris.io/jokes/categories`
         );
-        setResults(data.hits);
+        setCategories(data);
+        console.log(data);
       } catch (error) {
         console.log(error);
       }
@@ -22,42 +26,34 @@ const Search = () => {
     search();
   }, []);
 
-  const handleSearch = (event) => {
-    let value = event.target.value.toLowerCase();
-    setQuery(value);
-  };
+  // const handleSearch = (event) => {
+  //   let value = event.target.value.toLowerCase();
+  //   setQuery(value);
+  // };
 
-  const handleClick = async () => {
+  const handleClick = async (e) => {
     setIsLoading(true);
     try {
       const { data } = await axios.get(
-        `https://hn.algolia.com/api/v1/search?query=${query}`
+        `https://api.chucknorris.io/jokes/random?category=${e.target.innerText}`
       );
-      setResults(data.hits);
-    } catch (error) {
-      console.log(error);
-    }
+      setJoke(data.value);
+    } catch (error) {}
     setIsLoading(false);
   };
 
-  const renderResults = results.map((result) => {
+  const displayCategories = categories.map((category, index) => {
     return (
-      <Fragment key={result.objectID}>
-        <li>
-          <a href={`${result.url}`} target="_blank">
-            {result.title}
-          </a>
-        </li>
+      <Fragment key={index}>
+        <button onClick={handleClick}>{category}</button>
       </Fragment>
     );
   });
 
   return (
     <div>
-      {<input value={query} onChange={(event) => handleSearch(event)} />}
-      <button onClick={handleClick}>Search</button>
-      {isLoading && <div>Loading...</div>}
-      <ul className="results-list">{renderResults}</ul>
+      <div className="results-list">{displayCategories}</div>
+      <p>{joke}</p>
     </div>
   );
 };
