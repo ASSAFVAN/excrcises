@@ -2,40 +2,62 @@ import React, { useState, useEffect, Fragment } from "react";
 import axios from "axios";
 
 const Search = () => {
-  const [country, setCountry] = useState([]);
-  const [filteredData, setFilteredData] = useState(country);
+  const [query, setQuery] = useState("hooks");
+  const [results, setResults] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const search = async () => {
-      const { data } = await axios.get("https://restcountries.com/v2/all");
-      setCountry(data);
-      setFilteredData(data);
+      setIsLoading(true);
+      try {
+        const { data } = await axios.get(
+          `https://hn.algolia.com/api/v1/search?query=${query}`
+        );
+        setResults(data.hits);
+      } catch (error) {
+        console.log(error);
+      }
+      setIsLoading(false);
     };
     search();
   }, []);
 
   const handleSearch = (event) => {
     let value = event.target.value.toLowerCase();
-    console.log(value);
-    let result = [];
-    result = country.filter((data) => {
-      return data.name.toLowerCase().search(value) !== -1;
-    });
-    setFilteredData(result);
+    setQuery(value);
   };
 
-  const renderedCountries = filteredData.map((country) => {
+  const handleClick = async () => {
+    setIsLoading(true);
+    try {
+      const { data } = await axios.get(
+        `https://hn.algolia.com/api/v1/search?query=${query}`
+      );
+      setResults(data.hits);
+    } catch (error) {
+      console.log(error);
+    }
+    setIsLoading(false);
+  };
+
+  const renderResults = results.map((result) => {
     return (
-      <Fragment key={country.alpha2Code}>
-        <li>{country.name}</li>
+      <Fragment key={result.objectID}>
+        <li>
+          <a href={`${result.url}`} target="_blank">
+            {result.title}
+          </a>
+        </li>
       </Fragment>
     );
   });
 
   return (
     <div>
-      <div>{<input onChange={(event) => handleSearch(event)} />}</div>
-      <ul className="countries-list">{renderedCountries}</ul>
+      {<input value={query} onChange={(event) => handleSearch(event)} />}
+      <button onClick={handleClick}>Search</button>
+      {isLoading && <div>Loading...</div>}
+      <ul className="results-list">{renderResults}</ul>
     </div>
   );
 };
