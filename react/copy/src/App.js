@@ -1,11 +1,19 @@
-import React from "react";
+import { useState } from "react";
 import "./App.css";
-import Search from "./Components/Search";
+import FetchData from "./Components/FetchData";
 
 export default function App() {
+  const [show, setShow] = useState(false);
   return (
-    <div>
-      <Search />
+    <div className="App">
+      <button
+        onClick={() => {
+          setShow(!show);
+        }}
+      >
+        toggle
+      </button>
+      {show && <FetchData />}
     </div>
   );
 }
