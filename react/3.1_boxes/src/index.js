@@ -8,7 +8,7 @@ if (module.hot) {
 const BoxContainer = () => {
   return (
     <div>
-      <div className="green-box">
+      <div className="green-box a">
         <div className="blue-box">
           <div className="pink-box">
             <div className="purple-box"></div>
