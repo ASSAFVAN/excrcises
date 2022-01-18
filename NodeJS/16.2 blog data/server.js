@@ -13,6 +13,8 @@ MongoClient.connect(url, function (error, client) {
 
   const db = client.db("blog");
 
+  db.collection("users").createIndex({ email: 1 }, { unique: true });
+
   db.collection("users").insertOne({
     name: "assaf",
     email: "vanunuassaf@gmail.com",
