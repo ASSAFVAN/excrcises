@@ -44,7 +44,7 @@ const Product = mongoose.model("Product", {
       type: String,
       required: true,
       validate(value) {
-        if ((!validator.isMobilePhone(value), "he-IL")) {
+        if (!validator.isMobilePhone(value, "he-IL")) {
           throw new Error(
             "phone number is valid according to israel phone rules"
           );
@@ -66,7 +66,7 @@ const product = new Product({
       "https://images.unsplash.com/photo-1569770218135-bea267ed7e84?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80",
       "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=726&q=80",
     ],
-    phoneNumber: "972546393591",
+    phoneNumber: "+972546393591",
   },
 });
 
