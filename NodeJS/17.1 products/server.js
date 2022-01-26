@@ -69,11 +69,33 @@ const product = new Product({
     phoneNumber: "+972546393591",
   },
 });
+const product1 = new Product({
+  name: "logitech mx2",
+  category: "computers",
+  isActive: true,
+  details: {
+    description: "wireless mouse",
+    price: 200,
+    images: [
+      "https://i.rtings.com/assets/products/25W0iOu9/logitech-mx-master-2s/design-large.jpg",
+      "https://i.rtings.com/assets/products/UPOdtAiR/logitech-mx-master-3/design-large.jpg",
+    ],
+    phoneNumber: "+972546393592",
+  },
+});
 
 product
   .save()
   .then(() => {
     console.log(product);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+product1
+  .save()
+  .then(() => {
+    console.log(product1);
   })
   .catch((error) => {
     console.log(error);
