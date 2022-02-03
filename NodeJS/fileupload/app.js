@@ -2,12 +2,18 @@ const express = require("express");
 const multer = require("multer");
 const cors = require("cors");
 const app = express();
+const fs = require("fs");
 require("./src/db/mongoose");
 const PORT = process.env.PORT || 5000;
 
+const albums = { id: 1, name: "album1", images: [] };
+const newDir = albums.name;
+// once you create a folder, there will be an error of existing folder. todo: check if folder doesnt exist
+fs.mkdirSync(`./${newDir}`);
+
 const fileStorageEngine = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "./images");
+    cb(null, `./${newDir}`);
   },
   filename: (req, file, cb) => {
     cb(null, Date.now() + "--" + file.originalname);
@@ -31,13 +37,19 @@ const upload = multer({
 
 app.post("/single", upload.single("image"), (req, res) => {
   console.log(req.file);
-
+  albums.images.push(`./${albums.name}/${req.file.filename}`);
+  console.log(albums);
   res.status(200).send("single file upload successfully");
 });
 
 app.post("/multiple", upload.array("images", 3), (req, res) => {
-  console.log(req.files);
-
+  const files = req.files;
+  files.map((image) => {
+    albums.images.push(`./${albums.name}/${image.filename}`);
+  });
+  // albums.images.push(`./${albums.name}/${req.files.filename}`);
+  // console.log(req.files);
+  console.log(albums.images);
   res.status(200).send("multiple files upload successfully");
 });
 
